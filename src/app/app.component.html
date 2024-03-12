@@ -1,5 +1,11 @@
 <div class="container">
     <h1>{{joke}}</h1>
-    <button (click)="nextJoke()" [disabled]="isEnabled"
+    <button (click)="nextJoke()"
+        [disabled]="isEnabled"
         type="button">{{buttonText}}</button>
+    <div>
+        <ul>
+            <li *ngFor="let m of messages">{{m}}</li>
+        </ul>
+    </div>
 </div>

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class JokeService {
 
-  url = 'https://api.chucknorris.io/jokes/random2'
+  url = 'https://api.chucknorris.io/jokes/random'
 
   constructor(private http: HttpClient) { }
 
