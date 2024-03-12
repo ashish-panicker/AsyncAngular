@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { JokeService } from './shared/joke.service';
 import { LoggerService } from './shared/logger.service';
 import { NgFor } from '@angular/common';
-import { HttpLoggerInterceptor } from './shared/HttpLoggerInterceptor';
+import { HttpRequestLogger } from './shared/HttpLoggerInterceptor';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +22,7 @@ export class AppComponent {
   constructor(
     private jokeService: JokeService,
     private log: LoggerService,
-    private interceptor: HttpLoggerInterceptor) {
+    private interceptor: HttpRequestLogger) {
     this.nextJoke()
     this.getMessages()
   }
