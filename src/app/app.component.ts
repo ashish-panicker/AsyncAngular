@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { JokeService } from './shared/joke.service';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,24 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'AsyncAngular';
+
+  joke = ''
+  buttonText = 'Next Joke'
+  isEnabled = false
+
+  constructor(private jokeService: JokeService) {
+    this.nextJoke()
+  }
+
+  nextJoke() {
+    this.jokeService.randomJoke().subscribe({
+      next: data => {
+        this.joke = data.value
+      },
+      error: err => {
+        this.joke = err.error.message
+        console.error(err.error.message)
+      },
+    })
+  }
 }
